@@ -1,0 +1,176 @@
+/* style.css - modern clean UI */
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --primary: #2563eb;       /* blue */
+  --accent: #06b6d4;        /* teal */
+  --success: #16a34a;
+  --danger: #ef4444;
+  --glass: rgba(255,255,255,0.6);
+  --radius: 12px;
+  --shadow-sm: 0 1px 2px rgba(16,24,40,0.05);
+  --shadow-md: 0 8px 24px rgba(16,24,40,0.08);
+  --max-width: 1100px;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background: linear-gradient(180deg, #f6f8fb 0%, #eef2ff 100%);
+  color:#111827;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-size:15px;
+  line-height:1.45;
+  padding:28px;
+  display:flex;
+  justify-content:center;
+  font-family:var(--font, Inter), sans-serif;
+}
+
+/* Main container */
+.app {
+  width:100%;
+  max-width:var(--max-width);
+  margin:0 auto;
+}
+
+/* Header */
+.header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:20px;
+}
+.header h1{
+  font-size:20px;
+  margin:0;
+  font-weight:700;
+  color:#0f172a;
+}
+.header .sub { color:var(--muted); font-size:13px; }
+
+/* Grid layout: top summary + main sections */
+.grid {
+  display:grid;
+  grid-template-columns: 1fr 360px;
+  gap:18px;
+  align-items:start;
+}
+
+/* Card */
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-md);
+  padding:18px;
+  border:1px solid rgba(15,23,42,0.04);
+}
+
+/* Small cards row */
+.summary-row{
+  display:flex;
+  gap:12px;
+  margin-bottom:12px;
+}
+.summary-card{
+  flex:1;
+  padding:14px;
+  border-radius:10px;
+  background:linear-gradient(180deg, rgba(6,182,212,0.06), rgba(6,182,212,0.03));
+  box-shadow:var(--shadow-sm);
+}
+.summary-card h3{ margin:0; font-size:13px; color:var(--muted); font-weight:600; }
+.summary-card p{ margin:6px 0 0; font-size:18px; font-weight:700; color:#0f172a; }
+
+/* Form styles (index.jsp) */
+.form {
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  max-width:540px;
+}
+.label { font-size:13px; color:var(--muted); margin-bottom:6px; font-weight:600;}
+.input, .select {
+  width:100%;
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid rgba(15,23,42,0.08);
+  background:linear-gradient(180deg,#fff,#fbfdff);
+  font-size:14px;
+  outline:none;
+  transition:box-shadow .15s, border-color .15s;
+}
+.input:focus, .select:focus {
+  border-color:var(--primary);
+  box-shadow:0 6px 20px rgba(37,99,235,0.08);
+}
+.row { display:flex; gap:10px; }
+.row .col { flex:1; }
+
+/* Buttons */
+.btn {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:10px;
+  border:0;
+  cursor:pointer;
+  font-weight:600;
+  color:white;
+  background:var(--primary);
+  box-shadow:0 8px 18px rgba(37,99,235,0.12);
+}
+.btn.ghost {
+  background:transparent;
+  color:var(--primary);
+  border:1px solid rgba(37,99,235,0.12);
+  box-shadow:none;
+}
+
+/* Table modern */
+.table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+  overflow:hidden;
+  border-radius:10px;
+}
+.table thead tr {
+  background: linear-gradient(90deg,#f8fafc,#ffffff);
+}
+.table th, .table td {
+  text-align:left;
+  padding:12px 14px;
+  border-bottom:1px solid rgba(15,23,42,0.06);
+}
+.table th { font-size:13px; color:var(--muted); font-weight:700; }
+.table tbody tr:hover { background: linear-gradient(90deg, rgba(37,99,235,0.02), rgba(6,182,212,0.01)); }
+
+/* Chart area */
+.chart-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+
+/* Small helpers */
+.kicker { font-size:12px; color:var(--muted); }
+.actions { display:flex; gap:8px; align-items:center; }
+
+/* Responsive */
+@media (max-width:980px){
+  .grid{ grid-template-columns: 1fr; }
+  .header{ flex-direction:column; align-items:flex-start; gap:6px;}
+  body{ padding:16px; }
+}
+
+/* Tiny utility */
+.text-muted { color:var(--muted); font-size:13px; }
+.tag { font-size:12px; padding:6px 8px; border-radius:8px; background:rgba(0,0,0,0.04); }
